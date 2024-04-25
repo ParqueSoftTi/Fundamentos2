@@ -1,0 +1,23 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-04-25T18:21:09-05:00",
+  "id": "Fundamentos2-markdown",
+  "duration": 0,
+  "title": "Fundamentos de programación II",
+  "summary": "Curso de Fundamentos 2",
+  "source": ".\\fundamentos2.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "fundamentosdeprogramacion2"
+  ],
+  "tags": [
+    "web"
+  ],
+  "url": "Fundamentos2-markdown"
+}
