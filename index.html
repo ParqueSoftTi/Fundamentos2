@@ -28,16 +28,228 @@
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="Algoritmos de ordenamiento" duration="0">
+      <google-codelab-step label="Estructura de datos" duration="0">
         <p>En los siguientes enlaces encontrarás una variedad de ejercicios diseñados para ayudarte a practicar y dominar los algoritmos de ordenamiento.</p>
 <ul>
-<li><a href="https://replit.com/@NKrdona/Clase-Arreglos-C22#Main.java" target="_blank">Àrreglos</a></li>
-<li><a href="https://replit.com/@NKrdona/Clase-Pilas-C22#Main.java" target="_blank">Pilas</a></li>
-<li><a href="https://replit.com/@NKrdona/Clase-Colas-C22#Main.java" target="_blank">Colas</a></li>
-<li><a href="https://replit.com/@NKrdona/Clase-Matrices-C22#Main.java" target="_blank">Matrices</a></li>
-<li><a href="https://replit.com/@NKrdona/Clase-Punteros-C22#main.c" target="_blank">Punteros</a></li>
-<li><a href="https://replit.com/@NKrdona/Clase-Nodos-C22#Main.java" target="_blank">Nodos</a></li>
+<li>Àrreglos</li>
 </ul>
+<pre><code>public class Main {
+  public static void main(String[] args) {
+    //Sintaxis
+    //tipoDato[] nombreVariable = new tipoDato[TAMANIO];
+
+    char saludo[] = new char[4];
+
+    //Asignamos valores en las posiciones del arreglo
+    saludo[0] = &#39;H&#39;;
+    saludo[1] = &#39;O&#39;;
+    saludo[2] = &#39;L&#39;;
+    saludo[3] = &#39;A&#39;;
+
+    //Recorremos e imprimimos los elemantos del arreglo
+    for(int posicion = 0; posicion &lt; saludo.length; posicion++){
+      System.out.println(saludo[posicion]);
+    }//fin del for   
+  }//fin del main
+
+}
+
+</code></pre>
+<ul>
+<li>Pilas</li>
+</ul>
+<pre><code>import java.util.Stack;
+import java.util.EmptyStackException;
+
+public class Main {
+  public static void main(String[] args) {
+    //Sintaxis
+    //Stack&lt;tipoElemento&gt; nombreVariable = new Stack&lt;tipoElemento&gt;();
+    Stack&lt;Integer&gt; pila = new Stack&lt;Integer&gt;();
+
+    //Agregamos elementos a la pila
+    pila.push(1);
+    pila.push(2);
+    pila.push(3);
+    pila.push(4);
+
+    //Mostramos los elementos de la pila
+    while(!pila.empty()){
+      //imprimimos y removemos el elemento del tope
+      try{
+        System.out.println(pila.pop());
+        
+      }catch(EmptyStackException e){ 
+        System.out.println(e);
+        break;//Rompemos el ciclo
+      }
+      
+    }//Fin del while
+   
+  }//Fin del main
+
+}
+</code></pre>
+<ul>
+<li>Colas</li>
+</ul>
+<pre><code>import java.util.Queue;
+import java.util.LinkedList;
+
+public class Main {
+
+  /*
+  @brief sdfsdfsdfsdfsdfsfdsfsdfsdf
+  sdfsdfsdfsdfd
+  @param String
+  @param int
+
+  @return int
+  */
+  public static void main(String[] args) {
+    //Sintaxis
+    //Queue&lt;TipoElemento&gt; nombreCola = new LinkedList&lt;TipoElemento&gt;();
+    Queue&lt;String&gt; cola = new LinkedList&lt;String&gt;();
+    String arreglo[] = {&#34;Hola&#34;,&#34;Como&#34;,&#34;Esta&#34;};
+
+    String elemento;
+
+    //Agregamos elementos a la cola
+    for(int indice = 0; indice &lt; arreglo.length; indice++){
+      cola.add(arreglo[indice]);
+    }
+  
+    //Imprimimos y removemos el head de la cola
+    while(cola.peek() != null){
+      elemento = cola.poll();
+      System.out.println(elemento);
+    }//Fin del while
+
+  }//Fin del Main
+
+}
+</code></pre>
+<ul>
+<li>Matrices</li>
+</ul>
+<pre><code>public class Main {
+  public static void main(String[] args) {
+    //Sintaxis
+    //tipoDato nombreVariable[][] = new tipoDato[FILAS][COL];
+    int matriz[][] = new int[3][2];
+
+    matriz[0][0] = 1;
+    matriz[0][1] = 2;
+    matriz[1][0] = 3;
+    matriz[1][1] = 4;
+    matriz[2][0] = 5;
+    matriz[2][1] = 6;
+
+    for(int fila = 0; fila &lt; matriz.length; fila++){//Recorre las filas
+      for(int col = 0; col &lt; matriz[fila].length; col++){//Recorre las columnas
+        System.out.print(matriz[fila][col] + &#34; &#34;);
+      }//Fin del for
+      System.out.println();
+    }//Fin del for
+    
+  }//Fin del main
+}
+
+</code></pre>
+<ul>
+<li>Punteros</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt; //headers
+
+int main() {
+  //Declaracion de variables
+  int entero;
+
+  //Declaracion de un puntero
+  int* punteroEntero;
+
+  //Guardamos en el puntero la direccion de la variable entero.
+  punteroEntero = &amp;entero;
+
+  //modificamos la variable entero mediante la referencia
+  *punteroEntero = 20;
+
+  //Mostramos en pantalla
+  printf(&#34;Direccion de memoria: %p\n&#34;, &amp;entero);
+  printf(&#34;Valor entero: %i\n&#34;,entero);
+  return 0;//Todo OK
+}
+</code></pre>
+<ul>
+<li>Nodos</li>
+</ul>
+<pre><code>class Main {
+
+  public static void main(String[] args) {
+    String persona1 = &#34;Juan&#34;;
+    String persona2 = &#34;Pedro&#34;;
+    String persona3 = &#34;Maria&#34;;
+    String persona4 = &#34;Luisa&#34;;
+
+    //Declaramos objetos de tipo Nodo
+    Nodo n1 = new Nodo(persona1);
+    Nodo n2 = new Nodo(persona2);
+    Nodo n3 = new Nodo(persona3);
+    Nodo n4 = new Nodo(persona4);
+
+    n1.setSiguiente(n2);
+    n2.setSiguiente(n3);
+    n3.setSiguiente(n4);
+
+    Nodo aux = n1;
+
+    for(int nodo = 0; nodo &lt; 4; nodo++){
+      String aux2 = (String)aux.getContiene();
+      System.out.println(aux2);
+      aux = aux.getSiguiente();
+    }
+  }
+}
+
+
+public class Nodo{
+  //Atributos
+  private Nodo siguiente;
+  private String contiene;
+
+  //Metodos Constructores
+  public Nodo(){
+    setSiguiente(null);
+    setContiene(null);
+  }
+
+  public Nodo(String c){
+    setSiguiente(null);
+    setContiene(c);
+  }
+
+  public Nodo(Nodo n, String c){
+    setSiguiente(n);
+    setContiene(c);
+  }
+
+  //Metodos Get y Set
+  public Nodo getSiguiente(){
+    return this.siguiente;
+  }
+  public void setSiguiente(Nodo siguiente){
+    this.siguiente = siguiente;
+  }
+
+  public String getContiene(){
+    return this.contiene;
+  }
+  public void setContiene(String contiene){
+    this.contiene = contiene;
+  }
+
+}//Fin de la clase
+</code></pre>
 
 
       </google-codelab-step>
@@ -45,11 +257,263 @@
       <google-codelab-step label="Ejercicios de ordenamientos" duration="0">
         <p>Descubre una selección de enlaces que te ofrecen ejercicios destinados a fortalecer tus habilidades en algoritmos de ordenamiento.</p>
 <ul>
-<li><a href="https://replit.com/@NKrdona/Selection-Sort-C22#Main.java" target="_blank">Selection sort</a></li>
-<li><a href="https://replit.com/@NKrdona/Insertion-Sort-C22#Main.java" target="_blank">Insertion sort</a></li>
-<li><a href="https://replit.com/@NKrdona/Merge-Sort-C22#Main.java" target="_blank">merge sort</a></li>
-<li><a href="https://replit.com/@NKrdona/Quick-Sort-C22#Main.java" target="_blank">Quit sort</a></li>
+<li>Selection sort</li>
 </ul>
+<pre><code>//Ordenamiento por Seleccion
+public class Main {
+
+  /*
+  @brief Implementation of selection sort algorithm.
+  @return int[] - sorted array
+  */
+  public static void main(String[] args) {
+    //Arreglo desordenado
+    int arreglo[] = {4,7,1,2,9,2,8};
+    //Almacena la posicion del elemento minimo
+    int min;
+    //variable temporal para el intercambio
+    int temp;
+
+    //recorre el arreglo desde 0 hasta n-1
+    for(int i = 0; i &lt; arreglo.length - 1 ; i++){
+      min = i;
+
+      for(int j = i+1; j &lt; arreglo.length; j++){
+        if(arreglo[j]&lt;arreglo[min]){
+          min = j;
+        }//fin del if
+      }//fin del for
+
+      //Intercambiamos el siguiente elemento a ordenar
+      temp = arreglo[i];
+      arreglo[i] = arreglo[min];
+      arreglo[min] = temp;
+      
+    }//fin del for
+
+    //Mostramos el arreglo
+    for(int posicion = 0; posicion &lt; arreglo.length; posicion++){
+      System.out.println(arreglo[posicion]);
+    }//fin del for
+    
+    
+  }//Fin del main
+
+}
+</code></pre>
+<ul>
+<li>Insertion sort</li>
+</ul>
+<pre><code>public class Main {
+  public static void main(String[] args) {
+    //Arreglo a ordenar
+    int arreglo[] = {3,5,1,9,0,2,5};
+    //Posicion donde se inserta el elemento a ordenar
+    int pos;
+    // Valor del elemento a ordenar
+    int valor;
+
+    for(int i = 0; i &lt; arreglo.length; i++){
+      pos = i;
+      valor = arreglo[i];
+
+      while(pos &gt; 0 &amp;&amp; valor &lt; arreglo[pos-1]){
+        arreglo[pos] = arreglo[pos-1];
+        pos = pos -1;
+      }//Fin del while
+      //Insertamos el valor en la posicion indicada
+      arreglo[pos] = valor;
+    }//Fin del for
+
+    //mostramos el arreglo
+    for(int posicion =0; posicion &lt; arreglo.length; posicion++){
+      System.out.println(arreglo[posicion]);
+    }//fin del for
+
+  }//Fin del main
+
+
+}
+</code></pre>
+<ul>
+<li>merge sort</li>
+</ul>
+<pre><code>class Main{
+
+  // Fusiona dos submatrices de arreglo[].
+  // Primera submatriz es arreglo[posIzquierda..mitad]
+  // Segunda submatriz es arreglo[mitad+1..posDerecha]
+  void merge(int arreglo[], int posIzquierda, int mitad, int posDerecha)
+  {
+      // Determinar el tamaño de las dos submatrices que se van a fusionar
+      int tamanioA = mitad - posIzquierda + 1;
+      int tamanioB = posDerecha - mitad;
+
+      // Creamos matrices temporales
+      int IZQUIERDA[] = new int[tamanioA];
+      int DERECHA[] = new int[tamanioB];
+
+      // Copiar datos en matrices temporales
+      for (int i = 0; i &lt; tamanioA; ++i){
+          IZQUIERDA[i] = arreglo[posIzquierda + i];
+      }
+      for (int j = 0; j &lt; tamanioB; ++j){
+          DERECHA[j] = arreglo[mitad + 1 + j];
+      }
+
+      // Fusionar las matrices temporales
+      // Índices iniciales de la primera y segunda submatrices
+      int i = 0, j = 0;
+
+      // Índice inicial de la matriz de submatrices fusionadas
+      int k = posIzquierda;
+      while (i &lt; tamanioA &amp;&amp; j &lt; tamanioB) {
+          if (IZQUIERDA[i] &lt;= DERECHA[j]) {
+              arreglo[k] = IZQUIERDA[i];
+              i++;
+          }
+          else {
+              arreglo[k] = DERECHA[j];
+              j++;
+          }
+          k++;
+      }
+
+      // Copia los elementos restantes de L[] si los hay
+      while (i &lt; tamanioA) {
+          arreglo[k] = IZQUIERDA[i];
+          i++;
+          k++;
+      }
+
+      // Copia los elementos restantes de R[] si los hay
+      while (j &lt; tamanioB) {
+          arreglo[k] = DERECHA[j];
+          j++;
+          k++;
+      }
+  }
+
+  // Función principal que ordena arreglo[l..r] usando
+  // merge()
+  void sort(int arreglo[], int posIzquierda, int posDerecha)
+  {
+      //Condición de parada
+      if (posIzquierda &lt; posDerecha) {
+          // Encontrar el punto medio
+          int mitad = (posIzquierda + posDerecha) / 2;
+
+          // Ordenar la primera y la segunda mitad
+          sort(arreglo, posIzquierda, mitad);
+          sort(arreglo, mitad + 1, posDerecha);
+
+          // Fusionar las mitades ordenadas
+          merge(arreglo, posIzquierda, mitad, posDerecha);
+      }
+  }
+
+  // Una función de utilidad para imprimir matrices de tamaño n
+  static void printArray(int arreglo[])
+  {
+      int n = arreglo.length;
+      for (int i = 0; i &lt; n; ++i){
+        System.out.print(arreglo[i] + &#34; &#34;);
+      }          
+      System.out.println();
+  }
+
+  //Funcion main()
+  public static void main(String[] args) {
+    int arreglo[] = { 12, 11, 13, 5, 6, 7 };
+
+    System.out.println(&#34;Arreglo original&#34;);
+    printArray(arreglo);
+
+    // Calling of Merge Sort
+    Main ob = new Main();
+    ob.sort(arreglo, 0, arreglo.length - 1);
+
+    System.out.println(&#34;\nArreglo ordenado&#34;);
+    printArray(arreglo);
+  }
+
+}
+
+</code></pre>
+<ul>
+<li>Quit sort</li>
+</ul>
+<pre><code>class Main {
+/* Esta función toma el último elemento como pivote, coloca el elemento pivote en su posición en la matriz ordenada, y coloca todos los elementos menores (más pequeños que el pivote) a la izquierda del pivote y todos los elementos mayores a la derecha del pivote  */
+    int partition(int arr[], int low, int high)
+    {
+        int pivot = arr[high];
+        int i = (low-1); // indice del elemento mas pequeño
+        for (int j=low; j&lt;high; j++)
+        {
+            // El elemento actual es menor o igual al pivote?
+            if (arr[j] &lt;= pivot)
+            {
+                i++;
+
+                // Intercambia arr[i] y arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        // Intercambia arr[i+1] y arr[high] (o por el pivote)
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+
+
+    /* Funcion principal que implementa QuickSort()
+      arr[] --&gt; Arreglo a ordenar,
+      low  --&gt; Indice de inicio,
+      high  --&gt; Indice Final */
+    void sort(int arr[], int low, int high)
+    {
+        if (low &lt; high)//Condicion de parada
+        {
+            /* pi es el índice de partición, arr[pi] está
+              ahora en el lugar correcto */
+            int pi = partition(arr, low, high);
+
+            // Ordenar recursivamente los elementos antes de la
+            // partición y después de la partición
+            sort(arr, low, pi-1);
+            sort(arr, pi+1, high);
+        }
+    }
+
+    /* Funcion utilitaria que imprime un arreglo de tamaño n */
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i&lt;n; ++i)
+            System.out.print(arr[i]+&#34; &#34;);
+        System.out.println();
+    }
+
+    // Main
+    public static void main(String args[])
+    {
+        int arr[] = {10, 7, 8, 9, 1, 5};
+        int n = arr.length;
+
+        Main ob = new Main();
+        ob.sort(arr, 0, n-1);
+
+        System.out.println(&#34;Arreglo Ordenado&#34;);
+        printArray(arr);
+    }
+}
+</code></pre>
 
 
       </google-codelab-step>
