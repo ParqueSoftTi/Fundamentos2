@@ -56,6 +56,33 @@
 
 </code></pre>
 <ul>
+<li>Matrices</li>
+</ul>
+<pre><code>public class Main {
+  public static void main(String[] args) {
+    //Sintaxis
+    //tipoDato nombreVariable[][] = new tipoDato[FILAS][COL];
+    int matriz[][] = new int[3][2];
+
+    matriz[0][0] = 1;
+    matriz[0][1] = 2;
+    matriz[1][0] = 3;
+    matriz[1][1] = 4;
+    matriz[2][0] = 5;
+    matriz[2][1] = 6;
+
+    for(int fila = 0; fila &lt; matriz.length; fila++){//Recorre las filas
+      for(int col = 0; col &lt; matriz[fila].length; col++){//Recorre las columnas
+        System.out.print(matriz[fila][col] + &#34; &#34;);
+      }//Fin del for
+      System.out.println();
+    }//Fin del for
+    
+  }//Fin del main
+}
+
+</code></pre>
+<ul>
 <li>Pilas</li>
 </ul>
 <pre><code>import java.util.Stack;
@@ -128,33 +155,6 @@ public class Main {
   }//Fin del Main
 
 }
-</code></pre>
-<ul>
-<li>Matrices</li>
-</ul>
-<pre><code>public class Main {
-  public static void main(String[] args) {
-    //Sintaxis
-    //tipoDato nombreVariable[][] = new tipoDato[FILAS][COL];
-    int matriz[][] = new int[3][2];
-
-    matriz[0][0] = 1;
-    matriz[0][1] = 2;
-    matriz[1][0] = 3;
-    matriz[1][1] = 4;
-    matriz[2][0] = 5;
-    matriz[2][1] = 6;
-
-    for(int fila = 0; fila &lt; matriz.length; fila++){//Recorre las filas
-      for(int col = 0; col &lt; matriz[fila].length; col++){//Recorre las columnas
-        System.out.print(matriz[fila][col] + &#34; &#34;);
-      }//Fin del for
-      System.out.println();
-    }//Fin del for
-    
-  }//Fin del main
-}
-
 </code></pre>
 <ul>
 <li>Punteros</li>
@@ -537,7 +537,6 @@ public class Main {
 <li>Utilice cualquiera de los algoritmos de ordenamiento vistos en clase para ordenar los nombres en orden alfabético.</li>
 <li>Desarrolle una función que imprima los nombres por pantalla, una vez ordenados.</li>
 </ol>
-<p>Fecha límite de entrega: Domingo 17 de Marzo de 2024, 18:00 pm</p>
 
 
       </google-codelab-step>
