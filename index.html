@@ -519,12 +519,86 @@ public class Main {
       </google-codelab-step>
     
       <google-codelab-step label="Instalacion Docker" duration="0">
-        
+        <h2 is-upgraded>**Instalar Docker en Windows **</h2>
+<p><strong>Paso 1. Descarga y ejecuta Docker Desktop</strong></p>
+<p>Puedes descargar la versión oficial de Docker Desktop desde el Docker Hub. Tras la descarga, ejecuta el archivo Docker Desktop Installer.exe. Si tu sistema es compatible con Hyper-V y WSL 2, se te pedirá que elijas uno de los dos métodos. Si Hyper-V o WSL 2 están activados, solo verás una opción. También puedes crear un acceso directo en el escritorio.</p>
+<p class="image-container"><img alt="imagen1" src="img\\debc945d791452ca.webp"></p>
+<p>En el asistente de instalación, puedes elegir entre Hyper-V o WSL 2 para la configuración de Docker.</p>
+<p>A continuación, comienza el proceso de instalación.</p>
+<p class="image-container"><img alt="imagen2" src="img\\a40e86b48172ba93.webp"></p>
+<p><strong>Paso 2. Reinicia Windows</strong></p>
+<p class="image-container"><img alt="imagen3" src="img\\80bc39e6636c0b1c.webp"></p>
+<p>Si la cuenta de administrador es diferente de la cuenta de usuario, el usuario debe ser añadido al grupo docker-users. Ve a &#34;Computer Management&#34; como administrador y navega hasta Local Users and Groups/Groups/ docker-users. Haz clic con el botón derecho para añadir el usuario al grupo. A continuación, vuelve a iniciar sesión para que se aplique el cambio.</p>
+<p>Puedes conseguir el mismo resultado a través de la terminal. Introduce tu nombre de usuario en .</p>
+<pre><code>$  net localgroup docker-users &lt;user&gt; /add`
+</code></pre>
+<p><strong>Paso 3. Inicia Docker Desktop</strong></p>
+<p>Una vez reiniciado el sistema, puedes abrir Docker Desktop y ejecutar tu primer contenedor. En la ventana abierta se te ofrecerá el tutorial de Docker.</p>
+<p class="image-container"><img alt="imagen4" src="img\\9f994464d7a95d67.webp"></p>
+
 
       </google-codelab-step>
     
       <google-codelab-step label="Practica Docker" duration="0">
-        
+        <p>Supongamos que estás desarrollando una aplicación Spring Boot con una base de datos PostgreSQL:</p>
+<p>Supongamos que tienes la siguiente estructura de archivos para tu proyecto:</p>
+<p class="image-container"><img alt="imagen1" src="img\\8b836fc11fa54932.png"></p>
+<ol type="1">
+<li>src/main/java/com/ejemplo/Application.java: Este archivo contendrá tu clase principal de la aplicación Spring Boot.</li>
+</ol>
+<pre><code>package com.ejemplo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+</code></pre>
+<ol type="1" start="2">
+<li>docker/Dockerfile: El archivo Dockerfile para construir la imagen de la aplicación Spring Boot.</li>
+</ol>
+<pre><code>FROM openjdk:11-jdk
+
+WORKDIR /app
+
+COPY ./target/proyecto.jar /app/proyecto.jar
+
+CMD [&#34;java&#34;, &#34;-jar&#34;, &#34;proyecto.jar&#34;]
+</code></pre>
+<ol type="1" start="3">
+<li>docker-compose.yml: El archivo Docker Compose que define los servicios de tu aplicación y su configuración.</li>
+</ol>
+<pre><code>version: &#39;3&#39;
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - &#34;8080:8080&#34;
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ejemplo
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: contraseña
+</code></pre>
+<p>En este ejemplo:</p>
+<p>El servicio app utiliza el Dockerfile ubicado en el directorio docker para construir una imagen que ejecuta la aplicación Spring Boot. Expone el puerto 8080 para que la aplicación sea accesible desde el host. El servicio db utiliza la imagen oficial de PostgreSQL. Se establecen algunas variables de entorno para configurar la base de datos.</p>
+<p>Para ejecutar tu aplicación, simplemente navega al directorio principal del proyecto y ejecuta el siguiente comando:</p>
+<pre><code>docker-compose up --build
+</code></pre>
+<p>Esto construirá las imágenes y ejecutará los contenedores según la configuración definida en docker-compose.yml. Una vez que los contenedores estén en funcionamiento, podrás acceder a tu aplicación Spring Boot en http://localhost:8080.</p>
+
 
       </google-codelab-step>
     
